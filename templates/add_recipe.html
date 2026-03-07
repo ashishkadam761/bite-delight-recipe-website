@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Recipe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+   <!-- ===== HEADER ===== -->
+<header>
+    <div class="container">
+    <h1 class="logo">
+    <span class="fancy-logo">B</span>ite
+    <span class="fancy-logo">D</span>elight
+    </h1>
+    <nav>
+    <ul class="nav-list">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+{% if session.get("user_id") %}
+
+<li class="nav-user">Hello {{ session.get("user_name") }}</li>
+<li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+{% else %}
+
+<li><a href="{{ url_for('login') }}">Login</a></li>
+<li><a href="{{ url_for('register') }}">Register</a></li>
+
+{% endif %}      
+    </ul>
+</nav>
+       
+    </div>
+</header>
+
+
+<section class="add-recipe-section">
+
+<h1 class="add-recipe-title">Add New Recipe</h1>
+
+<form method="POST" enctype="multipart/form-data" class="add-recipe-form">
+
+<input type="text" name="title" placeholder="Recipe Title" required>
+
+<textarea name="ingredients" placeholder="Ingredients" rows="4" required></textarea>
+
+<textarea name="steps" placeholder="Preparation Steps" rows="4" required></textarea>
+
+<input type="file" name="image">
+
+<button type="submit">Add Recipe</button>
+
+</form>
+
+<div>
+<a href="{{ url_for('recipes') }}" class="back-btn">← Back to Recipes</a>
+</div>
+
+</section>
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-container">
+
+        <!-- Footer Top: About & Recipes -->
+        <div class="footer-top">
+            <!-- About -->
+            <div class="footer-about">
+                <h3>About BiteDelight</h3>
+                <p>BiteDelight is your go-to platform to explore, share, and enjoy delicious recipes from around the world.</p>
+            </div>
+
+            <!-- Popular Recipes -->
+            <div class="footer-recipes">
+                <h3>Popular Recipes</h3>
+                <ul>
+                    <li><a href="#recipes">Strawberry Custard</a></li>
+                    <li><a href="#recipes">Egg Italian Gravy</a></li>
+                    <li><a href="#recipes">Chicken Kebab</a></li>
+                    <li><a href="#recipes">Fresh Green Salad</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom: Social Icons + Mini Nav -->
+        <div class="footer-bottom">
+            <!-- Social Icons -->
+            <div class="footer-social">
+                <a href="#"><img src="{{ url_for('static', filename='images/instagram_3670125.png') }}" alt="Instagram"></a>
+                <a href="#"><img src="{{ url_for('static', filename='images/facebook_2374418.png') }}" alt="Facebook"></a>
+                <a href="#"><img src="{{ url_for('static', filename='images/youtube_2504965.png') }}" alt="YouTube"></a>
+            </div>
+
+            <!-- Mini Navbar -->
+            <div class="footer-nav">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('recipes') }}">Recipes</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+</div>
+            
+
+            <p class="footer-copy">© 2026 BiteDelight | All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteDelight | Recipe Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=6">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="container">
+    <h1 class="logo">
+    <span class="fancy-logo">B</span>ite
+    <span class="fancy-logo">D</span>elight
+    </h1>
+    <nav>
+    <ul class="nav-list">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+{% if session.get("user_id") %}
+
+<li class="nav-user">Hello {{ session.get("user_name") }}</li>
+<li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+{% else %}
+
+<li><a href="{{ url_for('login') }}">Login</a></li>
+<li><a href="{{ url_for('register') }}">Register</a></li>
+
+{% endif %}      
+    </ul>
+</nav>
+       
+    </div>
+</header>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+    <div class="hero-section">
+        <h2>Welcome to our Recipe Collection</h2>
+        <p>Search mouth-watering recipes to satisfy your craving</p>
+
+        <!-- SEARCH BOX -->
+        <form class="search-box" action="{{ url_for('search') }}" method="GET">
+    <input type="text" name="query" placeholder="Search Recipe" required>
+    <button type="submit">Search</button>
+</form>
+    </div>
+</section>
+
+<!-- ===== RECIPES SECTION ===== -->
+<section class="recipes" id="recipes">
+    <h2 class="section-title">Popular Recipes</h2>
+
+    <div class="recipe-container">
+
+        <div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/dish-1.jpg') }}">
+    <h3>Strawberry Custard</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+            1. Preheat oven to 180°C.<br>
+            2. Mix strawberries with sugar.<br>
+            3. Whisk eggs and cream, combine.<br>
+            4. Bake for 25 minutes.<br>
+            5. Serve chilled with blueberries.
+        </p>
+    </div>
+</div>
+
+<div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/dish-2.jpg') }}">
+    <h3>Egg Italian Gravy</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+            1. Boil eggs and peel.<br>
+            2. Prepare tomato gravy with Italian spices.<br>
+            3. Add eggs to gravy.<br>
+            4. Simmer for 10 minutes.<br>
+            5. Serve hot with bread or rice.
+        </p>
+    </div>
+</div>
+
+<div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/dish-3.jpg') }}">
+    <h3>Chicken Kebab</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+            1. Marinate chicken with yogurt and spices for 2 hours.<br>
+            2. Skewer chicken pieces.<br>
+            3. Grill or bake at 200°C for 20 minutes.<br>
+            4. Serve hot with mint chutney.
+        </p>
+    </div>
+</div>
+
+<div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/dish-4.jpg') }}">
+    <h3>Fresh Green Salad</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+            1. Chop cucumber, lettuce, tomatoes, and bell peppers.<br>
+            2. Add olive oil, lemon juice, salt, and pepper.<br>
+            3. Toss everything well.<br>
+            4. Serve immediately chilled.
+        </p>
+    </div>
+</div>
+
+    </div>
+</section>
+
+-----
+
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+    <h2 class="section-title">About Bite<span>Delight</span></h2>
+    <p>
+        BiteDelight is a recipe sharing platform where users can explore,
+        search and add their favorite recipes easily.
+    </p>
+</section>
+
+
+<!-- ===== RECIPES SECTION ===== -->
+<section class="recipes veg-section" id="recipes">
+<h2 class="section-title veg-title">Top Veg Popular Recipes</h2>
+    <div class="recipe-container">
+
+        <div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/dish-1.jpg') }}">
+    <h3>Strawberry Custard</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+            1. Preheat oven to 180°C.<br>
+            2. Mix strawberries with sugar.<br>
+            3. Whisk eggs and cream, combine.<br>
+            4. Bake for 25 minutes.<br>
+            5. Serve chilled with blueberries.
+        </p>
+    </div>
+</div>
+
+<div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/pbm.jpg') }}">
+    <h3>Paneer Butter Masala</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+            1. Grill Paneer and peel.<br>
+            2. Prepare tomato gravy with Italian spices.<br>
+            3. Add Paneerto gravy.<br>
+            4. Simmer for 10 minutes.<br>
+            5. Serve hot with bread or rice.
+        </p>
+    </div>
+</div>
+
+<div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/vegchsw.webp') }}">
+    <h3>Veg Cheese Sandwich</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+            1. Marinate Mashe with yogurt and spices for 2 hours.<br>
+            2. Grill Bread Slices with mache and use vegetables and Paneer.<br>
+            3. Grill or bake at 200°C for 20 minutes.<br>
+            4. Serve hot with mint chutney.
+        </p>
+    </div>
+</div>
+
+<div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/dish-4.jpg') }}">
+    <h3>Fresh Green Salad</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+            1. Chop cucumber, lettuce, tomatoes, and bell peppers.<br>
+            2. Add olive oil, lemon juice, salt, and pepper.<br>
+            3. Toss everything well.<br>
+            4. Serve immediately chilled.
+        </p>
+    </div>
+</div>
+
+    </div>
+</section>
+
+<!-- ===== RECIPES SECTION ===== -->
+<section class="recipes" id="recipes">
+    <h2 class="section-title">Top Non-Veg Popular Recipes</h2>
+
+    <div class="recipe-container">
+
+        <div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/bc.jpg') }}">
+    <h3>Butter Chicken</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+           1.Heat butter in pan, sauté onions until golden.<br>
+2.Add ginger-garlic paste, cook for 1 min.<br>
+3.Add tomato puree and cook until oil separates.<br>
+4.Add chicken, cook until done.<br>
+5.Stir in cream and garam masala.<br>
+6.Garnish with coriander and serve hot with naan or rice.<br>
+
+
+        </p>
+    </div>
+</div>
+
+<div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/dish-2.jpg') }}">
+    <h3>Egg Italian Gravy</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+            1. Boil eggs and peel.<br>
+            2. Prepare tomato gravy with Italian spices.<br>
+            3. Add eggs to gravy.<br>
+            4. Simmer for 10 minutes.<br>
+            5. Serve hot with bread or rice.
+        </p>
+    </div>
+</div>
+
+<div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/dish-3.jpg') }}">
+    <h3>Chicken Kebab</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+            1. Marinate chicken with yogurt and spices for 2 hours.<br>
+            2. Skewer chicken pieces.<br>
+            3. Grill or bake at 200°C for 20 minutes.<br>
+            4. Serve hot with mint chutney.
+        </p>
+    </div>
+</div>
+
+<div class="recipe-card">
+    <img src="{{ url_for('static', filename='images/cb.jpg') }}">
+    <h3>Chicken Biryani</h3>
+    <div class="card-content">
+        <button class="card-button">View Recipe</button>
+        <p class="card-recipe">
+           ..Wash rice and soak for 30 min.<br>
+
+1.Marinate chicken with yogurt, chili powder, turmeric, and salt.<br>
+2.Fry onions until golden, set aside half for garnishing.<br>
+3.Cook marinated chicken with onions, ginger-garlic paste, and spices.<br>
+4.Boil rice with salt until 70% cooked.<br>
+5.Layer chicken and rice, sprinkle mint & coriander.<br>
+6.Cover and cook on low flame for 15–20 min (dum style).<br>
+7.Serve hot with raita.<br>
+        </p>
+    </div>
+</div>
+
+    </div>
+</section>
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+    <h2><span class="fancy">C</span>ontact <span class="fancy">U</span>s</h2>
+    <form class="contact-form" method="POST" action="{{ url_for('send_contact') }}">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Show success/error message -->
+    {% if success == True %}
+        <p class="contact-success">Thank you! Your message has been sent.</p>
+    {% elif success == False %}
+        <p class="contact-error">Oops! Something went wrong. Please try again.</p>
+    {% endif %}
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-container">
+
+        <!-- Footer Top: About & Recipes -->
+        <div class="footer-top">
+            <!-- About -->
+            <div class="footer-about">
+                <h3>About BiteDelight</h3>
+                <p>BiteDelight is your go-to platform to explore, share, and enjoy delicious recipes from around the world.</p>
+            </div>
+
+            <!-- Popular Recipes -->
+            <div class="footer-recipes">
+                <h3>Popular Recipes</h3>
+                <ul>
+                    <li><a href="#recipes">Strawberry Custard</a></li>
+                    <li><a href="#recipes">Egg Italian Gravy</a></li>
+                    <li><a href="#recipes">Chicken Kebab</a></li>
+                    <li><a href="#recipes">Fresh Green Salad</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom: Social Icons + Mini Nav -->
+        <div class="footer-bottom">
+            <!-- Social Icons -->
+            <div class="footer-social">
+                <a href="#"><img src="{{ url_for('static', filename='images/instagram_3670125.png') }}" alt="Instagram"></a>
+                <a href="#"><img src="{{ url_for('static', filename='images/facebook_2374418.png') }}" alt="Facebook"></a>
+                <a href="#"><img src="{{ url_for('static', filename='images/youtube_2504965.png') }}" alt="YouTube"></a>
+            </div>
+
+            <!-- Mini Navbar -->
+            <div class="footer-nav">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('recipes') }}">Recipes</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+</div>
+            
+
+            <p class="footer-copy">© 2026 BiteDelight | All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

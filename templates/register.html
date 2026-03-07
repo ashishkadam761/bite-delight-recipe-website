@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register | BiteDelight</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="logo">
+            <span class="fancy-logo">B</span>ite
+            <span class="fancy-logo">D</span>elight
+        </h1>
+
+        <nav>
+    <ul class="nav-list">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+{% if session.get("user_id") %}
+
+<li class="nav-user">Hello {{ session.get("user_name") }}</li>
+<li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+{% else %}
+
+<li><a href="{{ url_for('login') }}">Login</a></li>
+<li><a href="{{ url_for('register') }}">Register</a></li>
+
+{% endif %}      
+    </ul>
+</nav>
+    </div>
+</header>
+
+
+<section class="login-section">
+
+<div class="login-box">
+
+<h2>Create Account</h2>
+<p>Join BiteDelight today</p>
+
+<form method="POST">
+
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="email" name="email" placeholder="Email Address" required>
+
+<input type="password" name="password" placeholder="Create Password" required>
+
+<button type="submit">Register</button>
+
+<p class="register-text">
+Already have an account?
+<a href="{{ url_for('login') }}">Login</a>
+</p>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+<p class="footer-copy">© 2026 BiteDelight | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

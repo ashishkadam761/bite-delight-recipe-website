@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact | BiteDelight</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=101">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="container">
+    <h1 class="logo">
+    <span class="fancy-logo">B</span>ite
+    <span class="fancy-logo">D</span>elight
+    </h1>
+    <nav>
+    <ul class="nav-list">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+{% if session.get("user_id") %}
+
+<li class="nav-user">Hello {{ session.get("user_name") }}</li>
+<li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+{% else %}
+
+<li><a href="{{ url_for('login') }}">Login</a></li>
+<li><a href="{{ url_for('register') }}">Register</a></li>
+
+{% endif %}      
+    </ul>
+</nav>
+       
+    </div>
+</header>
+
+<!-- ===== CONTACT HERO ===== -->
+<section class="recipe-hero">
+    <div class="hero-overlay">
+        <h2>Get In Touch</h2>
+        <p>We’d love to hear from you!</p>
+    </div>
+</section>
+
+<!-- ===== CONTACT FORM ===== -->
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <h2>
+    <span class="fancy">C</span>ontact <span class="fancy">U</span>s
+  </h2>
+
+  <form class="contact-form" method="POST" action="{{ url_for('send_contact') }}">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+
+    {% if success %}
+      <p class="success-msg">Thank you! Your message has been sent.</p>
+    {% elif error %}
+      <p class="error-msg">Oops! Something went wrong. Try again.</p>
+    {% endif %}
+  </form>
+</section>
+
+<!-- ===== AWARENESS SLIDER ===== -->
+<section class="hunger-awareness">
+    <h2 class="section-title">We Should Not Waste Food — Donate & Save Lives</h2>
+    <div class="hunger-slider">
+      <div class="hunger-track">
+    <img src="{{ url_for('static', filename='images/slider/starving1.avif') }}">
+    <img src="{{ url_for('static', filename='images/slider/starving2.jpg') }}">
+    <img src="{{ url_for('static', filename='images/slider/starving3.jpg') }}">
+    <img src="{{ url_for('static', filename='images/slider/starving4.jpg') }}">
+    
+
+    <!-- Duplicate for smooth loop -->
+   <img src="{{ url_for('static', filename='images/slider/starving1.avif') }}">
+    <img src="{{ url_for('static', filename='images/slider/starving2.jpg') }}">
+    <img src="{{ url_for('static', filename='images/slider/starving3.jpg') }}">
+    <img src="{{ url_for('static', filename='images/slider/starving4.jpg') }}">
+</div>
+    </div>
+</section>
+
+<!-- ===== NGOs SECTION ===== -->
+<section class="ngos-section">
+    <h2 class="section-title">Major NGOs Fighting Hunger in India</h2>
+
+    <div class="ngo-row">
+        <div class="ngo-text">
+            <h3>The Akshaya Patra Foundation</h3>
+            <p>Feeds millions of school children every day through midday meal program.</p>
+            <p><strong>Email:</strong> contact@akshayapatra.org</p>
+            <p><strong>Phone:</strong> +91 80 3056 8100</p>
+        </div>
+        <div class="ngo-img">
+            <img src="{{ url_for('static', filename='images/ngos/ngo1.jpg') }}" alt="Akshaya Patra Logo">
+        </div>
+    </div>
+
+    <div class="ngo-row reverse">
+        <div class="ngo-img">
+            <img src="{{ url_for('static', filename='images/ngos/ngo2.jpg') }}" alt="Goonj Logo">
+        </div>
+        <div class="ngo-text">
+            <h3>Goonj</h3>
+            <p>Works on food distribution & disaster relief with community participation.</p>
+            <p><strong>Email:</strong> info@goonj.org</p>
+            <p><strong>Phone:</strong> +91 11 2647 4494</p>
+        </div>
+    </div>
+
+    <div class="ngo-row">
+        <div class="ngo-text">
+            <h3>Feeding India</h3>
+            <p>Redistributes surplus food to the needy with volunteers across India.</p>
+            <p><strong>Email:</strong> care@feedingindia.org</p>
+            <p><strong>Phone:</strong> +91 88844 18877</p>
+        </div>
+        <div class="ngo-img">
+            <img src="{{ url_for('static', filename='images/ngos/ngo3.jpg') }}" alt="Feeding India Logo">
+        </div>
+    </div>
+
+    <div class="ngo-row reverse">
+        <div class="ngo-img">
+            <img src="{{ url_for('static', filename='images/ngos/ngo4.jpg') }}" alt="Smile Foundation Logo">
+        </div>
+        <div class="ngo-text">
+            <h3>Smile Foundation</h3>
+            <p>Supports food, education & healthcare programs for underprivileged children.</p>
+            <p><strong>Email:</strong> contact@smilefoundationindia.org</p>
+            <p><strong>Phone:</strong> +91 11 6614 7800</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-container">
+
+        <!-- Footer Top: About & Recipes -->
+        <div class="footer-top">
+            <!-- About -->
+            <div class="footer-about">
+                <h3>About BiteDelight</h3>
+                <p>BiteDelight is your go-to platform to explore, share, and enjoy delicious recipes from around the world.</p>
+            </div>
+
+            <!-- Popular Recipes -->
+            <div class="footer-recipes">
+                <h3>Popular Recipes</h3>
+                <ul>
+                    <li><a href="#recipes">Strawberry Custard</a></li>
+                    <li><a href="#recipes">Egg Italian Gravy</a></li>
+                    <li><a href="#recipes">Chicken Kebab</a></li>
+                    <li><a href="#recipes">Fresh Green Salad</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom: Social Icons + Mini Nav -->
+        <div class="footer-bottom">
+            <!-- Social Icons -->
+            <div class="footer-social">
+                <a href="#"><img src="{{ url_for('static', filename='images/instagram_3670125.png') }}" alt="Instagram"></a>
+                <a href="#"><img src="{{ url_for('static', filename='images/facebook_2374418.png') }}" alt="Facebook"></a>
+                <a href="#"><img src="{{ url_for('static', filename='images/youtube_2504965.png') }}" alt="YouTube"></a>
+            </div>
+
+            <!-- Mini Navbar -->
+            <div class="footer-nav">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('recipes') }}">Recipes</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+</div>
+            
+
+            <p class="footer-copy">© 2026 BiteDelight | All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

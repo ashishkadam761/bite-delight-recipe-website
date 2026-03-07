@@ -1,0 +1,1166 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
+}
+
+body{
+    background:#fff;
+}
+
+/* ===== HEADER ===== */
+header{
+    height:60px;
+    background:black;
+    color:white;
+    display:flex;
+    align-items:center;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+}
+.logo span{
+    color:orange;
+}
+
+/* ===== HEADER LOGO FANCY LETTERS ===== */
+.logo .fancy-logo {
+    font-family: serif; /* or any other font you like */
+    font-weight: bold;
+    color: orange; /* optional: to make them stand out */
+    font-size: 28px; /* slightly bigger than default logo font */
+}
+.logo .bite{
+    color:white;
+    font-style:italic;
+}
+nav ul li{
+    list-style:none;
+    display:inline;
+    margin-right:20px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:550;
+    padding:8px 12px;
+    transition:0.3s ease;
+    border-radius:5px;
+}
+nav ul li a:hover{
+    background:orange;
+    color:black;
+    transform:scale(1.1) translateY(-3px);
+}
+
+/* ===== HERO ===== */
+.hero{
+    width:100%;
+    height:400px;
+    background: url("/static/images/hero-image3.jpg") no-repeat center center;
+    background-size: cover;
+    text-align:center;
+    padding-top:120px;
+    color:white;   /* important so text is visible */
+}
+
+.hero h2{
+    font-size:36px;
+}
+
+.hero p{
+    font-size:20px;
+    margin:10px 0;
+}
+
+/* ===== SEARCH ===== */
+.search-box{
+    max-width:550px;
+    margin:15px auto;
+    display:flex;
+}
+
+.search-box input{
+    width:70%;
+    padding:10px;
+    border:none;
+    outline:none;
+    border-radius:5px 0 0 5px;
+}
+
+.search-box button{
+    width:30%;
+    border:none;
+    background:red;
+    color:white;
+    font-size:16px;
+    border-radius:0 5px 5px 0;
+    cursor:pointer;
+}
+
+/* ===== RECIPES ===== */
+.recipes{
+    padding:50px 5%;
+    background:#f5f5f5;
+}
+/* Make the Popular Recipes heading red */
+.recipes .section-title {
+    color: tomato;  /* or use #FF6347 for tomato red */
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:32px;
+}
+
+.recipe-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    align-items: start;  /* prevents vertical misalignment */
+}
+/* ===== Recipe Cards Stable Layout ===== */
+.recipe-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px 10px;
+    min-height: 420px; /* same height for all cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* top alignment */
+}
+
+/* Card image */
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Dish title */
+.recipe-card h3 {
+    margin: 15px 0 10px;
+}
+
+/* Button below title */
+.card-button {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+/* Recipe paragraph below title, hidden initially but takes space */
+.card-recipe {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    color: white;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* Hover: show recipe, hide button */
+.recipe-card:hover {
+    transform: translateY(-5px);
+    background-color: tomato; /* hover color */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.recipe-card:hover .card-button {
+    opacity: 0;
+}
+
+.recipe-card:hover .card-recipe {
+    opacity: 1;
+    max-height: 300px; /* enough space for all recipe lines */
+}
+
+/* ===== ABOUT ===== */
+.about{
+    padding:50px 10%;
+    text-align:center;
+    background:orange;
+    color:white;
+}
+.about h2 span{
+    color: orangered;
+}
+/* ===== CONTACT ===== */
+.contact {
+    padding:50px 10%;
+    background: black;
+    color: white;
+}
+
+/* ===== CONTACT HEADING ===== */
+.contact h2 {
+    text-align: center;
+    font-size: 48px; /* slightly bigger */
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 
+        3px 3px 8px rgba(0,0,0,0.8), 
+        -2px -2px 5px rgba(0,0,0,0.5);
+}
+/* The fancy letters */
+.contact h2 .fancy {
+    font-family: serif;
+    font-weight: bold;
+}
+.contact-form{
+    max-width:500px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    background: rgba(255,255,255,0.1);
+    padding:20px;
+    border-radius:10px;
+    backdrop-filter: blur(5px);
+}
+
+
+.contact-form textarea{
+    margin:10px 0;
+    padding:10px;
+}
+
+.contact-form button{
+    background:black;
+    color:white;
+    padding:10px;
+    border:none;
+    cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+/* ===== FOOTER ===== */
+footer {
+    background: #111;
+    color: white;
+    font-family: sans-serif;
+    padding: 40px 10%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Footer Top: About + Recipes */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-about, .footer-recipes {
+    flex: 1 1 250px;
+}
+
+.footer-about h3, .footer-recipes h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: orange;
+}
+
+.footer-about p {
+    line-height: 1.5;
+}
+
+.footer-recipes ul {
+    list-style: none;
+}
+
+.footer-recipes ul li {
+    margin-bottom: 10px;
+}
+
+.footer-recipes ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-recipes ul li a:hover {
+    color: orange;
+}
+
+/* Footer Bottom: Social Icons + Mini Nav */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 20px;
+}
+
+.footer-social {
+    margin-bottom: 15px;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.footer-social a img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-social a:hover {
+    transform: scale(1.2);
+}
+
+/* Mini Navbar */
+.footer-nav {
+    margin-bottom: 10px;
+}
+
+.footer-nav a {
+    margin: 0 12px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-nav a:hover {
+    color: orange;
+}
+
+/* Footer Copy */
+.footer-copy {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-about, .footer-recipes {
+        flex: 1 1 100%;
+    }
+
+    .footer-nav a {
+        display: inline-block;
+        margin: 8px 6px;
+    }
+}
+
+/* ------------------------------------about.html---------------------------------------------------------------- */
+/* ===== ABOUT PAGE ===== */
+.about-page{
+    padding: 50px 10%;
+    background: #fff4e6;  /* light creamy background */
+}
+
+.about-section{
+    margin-bottom: 60px;
+}
+/* ===== ABOUT HERO SECTION ===== */
+.hero-about {
+    width: 100%;
+    height: 400px; /* you can adjust height if needed */
+    background: url("/static/images/childcooking.webp") no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    padding-top: 120px;
+    color: white;
+    position: relative;
+}
+
+/* Optional: Add a dark overlay so text is readable */
+.hero-about::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4); /* adjust opacity for darkness */
+    z-index: 1;
+}
+
+.hero-about .hero-section {
+    position: relative;
+    z-index: 2; /* bring text above overlay */
+}
+.about-heading{
+    text-align: center;
+    font-size: 32px;
+    color: tomato;
+    margin-bottom: 25px;
+}
+
+.about-content{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.about-content.left img,
+.about-content.right img{
+    width: 45%;
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+}
+
+.about-content.left p,
+.about-content.right p,
+.about-content.left ul,
+.about-content.right ul{
+    width: 50%;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Alternate image and text sides */
+.about-content.right{
+    flex-direction: row-reverse;
+}
+
+/* Image hover effect */
+.about-content img:hover{
+    transform: scale(1.05) rotate(1deg);
+}
+
+/* Quote style */
+.quote{
+    font-style: italic;
+    font-size: 20px;
+    background: #fff3e0;
+    padding: 15px 20px;
+    border-left: 5px solid tomato;
+    border-radius: 10px;
+}
+
+/* List style for features */
+.about-content ul{
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* ------------------------Recipes.html--------------------------------------------------------- */
+/* ===== ADD RECIPE HERO IMPROVED ===== */
+.recipe-hero {
+    height: 300px;
+    background: linear-gradient(135deg, black, tomato);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.recipe-hero h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.recipe-hero p {
+    font-size: 18px;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 35px;
+    background: orange;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+/* ===== FEATURED SLIDER CLEAN VERSION ===== */
+/* ===== FEATURED SECTION CLEAN PROFESSIONAL ===== */
+.featured-section {
+    padding: 70px 0;
+    background: #fff6f1;
+}
+
+.featured-section .section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #111;
+}
+
+.slider {
+    position: relative;
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slide-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide-card {
+    flex: 0 0 320px;
+    margin: 0 15px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.slide-card:hover {
+    transform: translateY(-10px);
+}
+
+.slide-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.slide-card h3 {
+    padding: 15px;
+    font-size: 18px;
+    text-align: center;
+    color: #222;
+}
+
+/* Buttons */
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: black;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+    transition: 0.3s;
+}
+
+.slide-btn:hover {
+    background: tomato;
+}
+
+.prev { left: -10px; }
+.next { right: -10px; }
+
+/* ===== CLEAN MODERN GRID ===== */
+/* ===== MODERN GRID CLEAN ===== */
+.all-recipes {
+    padding: 80px 0;
+    background: #f9f9f9;
+}
+
+.recipe-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.modern-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.modern-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.modern-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    color: tomato;
+}
+
+.card-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+}
+
+.delete-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 18px;
+    background: red;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: black;
+}
+
+/* =========================
+   RECIPES PAGE CLEAN STYLE
+   ========================= */
+
+body {
+    background: #f5f7fa;
+}
+
+/* Featured Section */
+.featured-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.featured-section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Slide Card */
+.slide-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.slide-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Slider Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ff7f50;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.prev:hover, .next:hover {
+    background: #ff5722;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Recipe Card Below */
+.recipe-card {
+    background: white;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.recipe-card h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.recipe-card p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* Delete Button */
+.delete-btn {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #c62828;
+}
+/* ===== VEG SECTION STYLING ===== */
+
+/* ===== VEG SECTION FIX ===== */
+
+.recipes.veg-section .section-title {
+    color: #8cc751 !important;
+}
+
+/* Veg Cards Hover Green */
+.veg-section .recipe-card:hover {
+    background-color: #8cc751 !important;
+    box-shadow: 0 10px 20px rgba(0, 100, 0, 0.3);
+}
+/*---------------------------contact.html----------------------------------------*/
+/* ===== Hunger Awareness Slider ===== */
+.hunger-slider {
+    overflow: hidden;
+    width: 100%;
+    background: #fff5f5;
+    padding: 20px 0;
+}
+.hunger-awareness {
+    padding: 70px 10%;
+    background: linear-gradient(to right, #fff3e0, #ffe0b2);
+    text-align: center;
+}
+
+.hunger-track {
+    display: flex;
+    width: calc(250px * 8);
+    animation: scrollHunger 20s linear infinite;
+}
+
+.hunger-track img {
+    width: 250px;
+    height: 180px;
+    margin: 0 15px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+@keyframes scrollHunger {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ===== NGO Section ===== */
+/* ===== PREMIUM NGO SECTION ===== */
+.ngos-section {
+    padding: 100px 10%;
+    background: linear-gradient(to bottom, #f8fbff, #eef3f9);
+}
+
+.ngos-section .section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 70px;
+    color: #2c3e50;
+}
+
+.ngo-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 70px;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    transition: 0.4s ease;
+}
+
+.ngo-row:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.ngo-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.ngo-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.ngo-text {
+    flex: 1;
+}
+.ngo-text h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #27ae60;
+}
+
+.ngo-text p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.ngo-text strong {
+    color: #2c3e50;
+}
+
+.ngo-img {
+    flex: 1;
+    text-align: center;
+}
+
+.ngo-img img {
+    width: 220px;
+    height: auto;
+    border-radius: 12px;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: 0.4s ease;
+}
+
+.ngo-img img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Contact Section ===== */
+/* ===== CONTACT SECTION WITH BACKGROUND ===== */
+/* ===== CONTACT SECTION WITH BACKGROUND IMAGE ===== */
+/* ===== CONTACT SECTION ===== */
+.contact {
+  position: relative;
+  padding: 100px 10%;
+  text-align: center;
+  color: white;
+  background: url("/static/images/slider/starving2.jpg") center/cover no-repeat;
+}
+
+/* Dark overlay */
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Bring content above overlay */
+.contact > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Contact heading outside glass box */
+.contact h2 {
+  font-size: 48px;
+  margin-bottom: 50px; /* more spacing from form */
+  color: white;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.8), -2px -2px 5px rgba(0,0,0,0.5);
+}
+
+.contact h2 .fancy {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-weight: bold;
+}
+
+/* Glass form */
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Make all inputs and textarea same width */
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Button */
+.contact-form button {
+  background: #27ae60;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #218838;
+}
+
+/* Success & error messages */
+.success-msg {
+  color: #00ff00;
+  margin-top: 10px;
+}
+
+.error-msg {
+  color: #ff4d4d;
+  margin-top: 10px;
+}
+/* ===== ==============================================================LOGIN PAGE ===== */
+.login-section {
+    height: 100vh;
+    background: url("../images/slider/starving2.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Dark overlay */
+.login-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.login-box {
+    position: relative;
+    z-index: 2;
+    width: 350px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+}
+
+.login-box h2 {
+    margin-bottom: 10px;
+    font-size: 26px;
+}
+
+.login-box p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #27ae60;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background: #1e8449;
+}
+/* Login input focus effect */
+.login-box input:focus{
+    outline:none;
+    box-shadow:0 0 5px rgba(255,255,255,0.8);
+}
+
+/* Register text */
+.register-text{
+    margin-top:15px;
+    font-size:14px;
+}
+
+.register-text a{
+    color:#FFD700;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.register-text a:hover{
+    text-decoration:underline;
+}
+
+/* Button improvement */
+.login-box button{
+    background:#FFD700;
+    color:black;
+    font-weight:600;
+}
+
+.login-box button:hover{
+    background:black;
+    color:#FFD700;
+}
+.nav-user{
+color:#FFD700;
+font-weight:bold;
+margin-right:10px;
+}
+/*-----------------------------add_recipes.html-----------------------------------------------*/
+/* ===== ADD RECIPE PAGE ===== */
+
+/* ===== ADD RECIPE PAGE BACKGROUND ===== */
+
+.add-recipe-section{
+    padding:80px 10%;
+    background: linear-gradient(to bottom, black, #FFD700);
+    min-height:80vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+/* Title */
+.add-recipe-title{
+    font-size:36px;
+    color:white;
+    margin-bottom:30px;
+}
+
+/* Form card */
+.add-recipe-form{
+    width:420px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    padding:35px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.3);
+}
+
+/* Inputs */
+.add-recipe-form input,
+.add-recipe-form textarea{
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+/* Button */
+.add-recipe-form button{
+    padding:12px;
+    background:black;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.add-recipe-form button:hover{
+    background:#FFD700;
+    color:black;
+}
+
+/* Back Button */
+.back-btn{
+    margin-top:25px;
+    padding:10px 25px;
+    background:black;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:white;
+    color:black;
+}
+/*---------------------for autotext in search*/
+.search-box{
+    position: relative;
+    width: 300px;
+}
+
+#suggestions{
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    z-index: 1000;
+}
+
+.suggestion-item{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover{
+    background: #f2f2f2;
+}
