@@ -131,6 +131,57 @@ nav ul li a:hover{
     gap: 20px;
     align-items: start;  /* prevents vertical misalignment */
 }
+
+/* ===== RECIPES PAGE SEARCH ===== */
+
+.recipe-search-section{
+    padding:50px 5%;
+    background:white;
+    text-align:center;
+}
+
+.recipe-search-section .section-title{
+    color:#ff5a3c;
+    margin-bottom:25px;
+}
+
+/* Search box container */
+.recipe-search-box{
+    max-width:600px;
+    margin:auto;
+    display:flex;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    border-radius:50px;
+    overflow:hidden;
+}
+
+/* Input */
+.recipe-search-box input{
+    flex:1;
+    padding:14px 20px;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+
+/* Button */
+.recipe-search-box button{
+    background:#ff5a3c;
+    color:white;
+    border:none;
+    padding:14px 25px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+/* Hover */
+.recipe-search-box button:hover{
+    background:#e64a2f;
+}
+
+
+
 /* ===== Recipe Cards Stable Layout ===== */
 .recipe-card {
     background: white;

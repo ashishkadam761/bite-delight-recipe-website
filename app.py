@@ -15,8 +15,8 @@ app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'kadamashish720@gmail.com'   # your email
-app.config['MAIL_PASSWORD'] = 'ypxl hwpf apdx bzln'          # app password from Gmail
+app.config['MAIL_USERNAME'] = os.environ.get("MAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = os.environ.get("MAIL_PASSWORD")          # app password from Gmail
 
 mail = Mail(app)
 
@@ -222,9 +222,19 @@ def add_recipe():
 
 @app.route("/recipes")
 def recipes():
-    recipes = Recipe.query.all()
-    return render_template("recipes.html", recipes=recipes)
 
+    recipes = Recipe.query.all()
+
+    my_recipes = []
+
+    if "user_id" in session:
+        my_recipes = Recipe.query.filter_by(user_id=session["user_id"]).all()
+
+    return render_template(
+        "recipes.html",
+        recipes=recipes,
+        my_recipes=my_recipes
+    )
 
 @app.route("/search")
 def search():
@@ -293,9 +303,19 @@ def search():
 
 @app.route("/delete/<int:id>")
 def delete_recipe(id):
+
+    if "user_id" not in session:
+        return redirect(url_for("login"))
+
     recipe = Recipe.query.get_or_404(id)
+
+    # Only allow owner to delete
+    if recipe.user_id != session.get("user_id"):
+        return "Unauthorized action", 403
+
     db.session.delete(recipe)
     db.session.commit()
+
     return redirect(url_for("recipes"))
 
 
